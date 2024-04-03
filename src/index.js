@@ -18,8 +18,8 @@ client.on("messageCreate", (message) => {
     if (message.author.bot){
         return;
     }
-  if (message.content === "hello") {
-    message.reply("hello");
+  if (message.content === "Je cekada dobar lik?") {
+    message.reply("Sem sto je Lenj i nevin, nije los lik za zablejati.");
   }
 });
 
