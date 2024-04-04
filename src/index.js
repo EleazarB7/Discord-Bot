@@ -15,14 +15,13 @@ client.on("ready", (c) => {
 });
 
 client.on("interactionCreate", (interaction) => { 
-    if (!interaction.isCommand()) return;
+    if (!interaction.isChatInputCommand()) return;
 
-    if (interaction.commandName === "hello") {
-        interaction.reply("Hello!");
-    }
-
-    if (interaction.commandName === "ping") {
-        interaction.reply("Pong!");
+    if (interaction.commandName === "add") {
+        const num1 = interaction.options.get("first-number").value;
+        const num2 = interaction.options.get("second-number").value;
+        
+        interaction.reply(`The sum is ${num1 + num2}`);
     }
 
    
