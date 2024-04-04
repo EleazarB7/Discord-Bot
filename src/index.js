@@ -14,14 +14,20 @@ client.on("ready", (c) => {
   console.log(`✔️ ${c.user.tag} is online`);
 });
 
-client.on("messageCreate", (message) => {
-    if (message.author.bot){
-        return;
+client.on("interactionCreate", (interaction) => { 
+    if (!interaction.isCommand()) return;
+
+    if (interaction.commandName === "hello") {
+        interaction.reply("Hello!");
     }
-  if (message.content === "Je cekada dobar lik?") {
-    message.reply("Sem sto je Lenj i nevin, nije los lik za zablejati.");
-  }
-});
+
+    if (interaction.commandName === "ping") {
+        interaction.reply("Pong!");
+    }
+
+   
+ });
+
 
 
 client.login(process.env.TOKEN);
